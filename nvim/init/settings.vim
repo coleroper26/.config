@@ -19,6 +19,7 @@ set incsearch
 set encoding=utf-8
 set clipboard=unnamedplus
 set background=dark
+set cursorline
 
 " Vim-template Settings
 let g:templates_directory           = '$HOME/.config/nvim/templates'
