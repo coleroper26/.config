@@ -1,0 +1,21 @@
+`timescale 1ns / 1ns
+//////////////////////////////////////////////////////////////////////////////////
+// Module Type      %HERE%
+// Author           Cole Roper
+// 
+// Create Date      %DATE%
+// Module Name      %FILE%
+// Description      
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module %FILE% ();
+    // Inputs
+    
+    // Outputs
+    
+    always @ () 
+    begin
+    end
+    
+endmodule

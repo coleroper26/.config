@@ -1,0 +1,19 @@
+# .bash_aliases
+## Cole Roper
+
+
+# Files
+alias ls='ls --color=auto'
+alias lt='ls --color=auto --human-readable --size -1 -S --classify'
+
+# Terminmal
+alias cleat='clear; lt'
+alias sc='scrot -s '
+
+# Trash
+alias toss='mv --force -t ~/.local/share/Trash --'
+alias toss-empty='rm -rf ~/.local/share/Trash/*'
+
+# Programs
+alias v='nvim'              # Editor
+alias z='zathura --fork'    # PDF
