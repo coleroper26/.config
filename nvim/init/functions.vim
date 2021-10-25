@@ -10,7 +10,7 @@ function! Compile()
         silent execute "!pdflatex %"
     elseif extension == "py"
         :w
-        execute "!python %"
+        execute "!python3 %"
     endif
 endfunction
 function! Preview()

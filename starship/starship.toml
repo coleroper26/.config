@@ -1,0 +1,59 @@
+# ~/.config/starship.toml
+
+# Disable the newline at the start of the prompt
+add_newline = false
+
+# Use custom format
+# format = '$username@$hostname '
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$java\
+$php\
+$python\
+$custom\
+$cmd_duration\
+$line_break\
+$jobs\
+$status\
+$character
+""" 
+# Always Active
+[username]
+show_always = true
+style_root = "red bold"
+style_user = "cyan bold"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = true
+style = "cyan bold"
+format = "@[$hostname]($style)"
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+[directory]
+truncation_length = 3
+truncation_symbol = "../"
+style = "blue bold"
+read_only = ""
+read_only_style = "red bold"
+format = " in[$read_only]($read_only_style) [$path]($style) "
+
+
+
+# Dev
+[php]
+symbol = " "
+format = "via [\\[$symbol $version\\]](117 bold)"
+[python]
+symbol = " "
+format = "via [\\[$symbol $version\\]](117 bold)"
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+# scan_timeout = 10
+

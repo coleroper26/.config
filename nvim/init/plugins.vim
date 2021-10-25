@@ -2,8 +2,8 @@
 call plug#begin('~/.vim/plugged')
 
 " Plug 'valloric/youcompleteme'
-Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'kabouzeid/nvim-lspinstall'
 " Plug 'theia-ide/typescript-language-server'
 
 Plug 'mbbill/undotree'
