@@ -10,7 +10,7 @@ HISTFILESIZE=2000       # commands on DISK at login/logout
 
 ## TERMINAL
 set -o vi                               # vi-like keybinds
-shopt -s checkwinsize                   # update LINES & COLUMNS after commands
+# shopt -s checkwinsize                   # update LINES & COLUMNS after commands
 shopt -s globstar                       # allow "**" wildcard in paths
 case $- in *i*) ;; *) return;; esac     # not interactive, do nothing
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"    # using lesspipe, switch to sh
@@ -18,9 +18,10 @@ case $- in *i*) ;; *) return;; esac     # not interactive, do nothing
 ## PROMPT
 if [[ "$TERM" == *"-256color" ]]; then
     ## Color Schemes
-
-    # PS1=$(echo "$(tput setaf 66)\u$(tput sgr0)@$(tput setaf 66)\h $(tput setaf 72)\w $(tput setaf 124)\$ ")
-    PROMPT_COMMAND=__set_prompt
+    [ $HOSTNAME == "DESKTOP-RM1MO6F" ] \
+        && PROMPT_COMMAND=__prompt_home \
+        || PROMPT_COMMAND=__prompt_remote
+    
     
 fi
 

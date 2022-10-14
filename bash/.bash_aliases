@@ -14,6 +14,7 @@ alias lt='ls -l -1'
 alias drill='export PROMPT_COMMAND=__set_prompt_focused; cleat'
 alias ease='export PROMPT_COMMAND=__set_prompt; clear'
 alias cleat='clear; lt'
+alias cleas='clear; ls'
 alias sc='scrot -s '
 
 # Trash

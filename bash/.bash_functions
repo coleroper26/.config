@@ -1,23 +1,46 @@
 #!/bin/bash
 # Cole Roper
 
-__set_prompt() {
+
+__prompt_home() {
+    # colors
     local EXIT="$?"
-    PS1=""
-    if [ $EXIT -eq 0 ]; then
-        PS1=$(echo "$(tput setaf 66)\u$(tput sgr0)@$(tput setaf 66)\h $(tput sgr0)| $(tput setaf 72)\W $(tput sgr0)| $(tput setaf 106)\$ $(tput sgr0)")
-    else
-        PS1=$(echo "$(tput setaf 66)\u$(tput sgr0)@$(tput setaf 66)\h $(tput sgr0)| $(tput setaf 72)\W $(tput sgr0)| $(tput setaf 167)$EXIT $(tput sgr0)| $(tput setaf 124)\$ $(tput sgr0)")
-    fi
+    local GREEN="\[\033[1;32m\]"
+    local RED="\[\033[1;31m\]"
+    local YELLOW="\[\033[1;33m\]"
+    local RESET="\[\033[0m\]"
+
+    # acronyms & exit code color
+    [ $EXIT == '0' ] && local DIRCOL=$GREEN || local DIRCOL=$RED
+    local CD=$(basename $PWD)
+    local CWD=$(dirname $PWD)
+    CWD="${CWD/#$/HOME/~}"
+    
+    # build PS1
+    PS1="$YELLOW! "
+    PS1+="$RESET$CWD/"
+    PS1+="$DIRCOL$CD "
+    PS1+="$RESET"
 }
 
-__set_prompt_focused() {
+__prompt_remote() {
+    # colors
     local EXIT="$?"
-    if [ $EXIT -eq 0 ]; then
-        PS1=$(echo "[ $(tput setaf 66)\u$(tput sgr0)@$(tput setaf 66)\h $(tput sgr0)| $(tput setaf 72)\w $(tput sgr0)| $(tput setaf 142)$EXIT $(tput sgr0)| $(tput setaf 106)\$ $(tput sgr0)]\n >> ")
-    else
-        PS1=$(echo "[ $(tput setaf 66)\u$(tput sgr0)@$(tput setaf 66)\h $(tput sgr0)| $(tput setaf 72)\w $(tput sgr0)| $(tput setaf 167)$EXIT $(tput sgr0)| $(tput setaf 124)\$ $(tput sgr0)]\n >> ")
-    fi
+    local GREEN="\[\033[0;32m\]"
+    local RED="\[\033[0;31m\]"
+    local YELLOW="\[\033[1;33m\]"
+    local RESET="\[\033[0m\]"
+
+    # acronyms & exit code color
+    [ $EXIT == '0' ] && local DIRCOL=$GREEN || local DIRCOL=$RED
+    local CD=$(basename $PWD)
+    local CWD=$(dirname $PWD)
+    CWD="${CWD/#$/HOME/~}"
+    
+    # build PS1
+    PS1="$YELLOW! "
+    PS1+="$RESET$RED\h "
+    PS1+="$RESET$CWD/"
+    PS1+="$DIRCOL$CD "
+    PS1+="$RESET"
 }
-
-

@@ -12,10 +12,11 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tpope/vim-surround'
 Plug 'aperezdc/vim-template'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
+Plug 'dbaileychess/vim-screeps'
 
 call plug#end()
 
-colorscheme dracula
+colorscheme gruvbox
 
 " neovim-lspconfig for tsserver
